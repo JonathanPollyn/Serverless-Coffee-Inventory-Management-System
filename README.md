@@ -119,30 +119,26 @@ serverless-inventory-management-system
 ## FRONTEND SETUP
 
 Navigate to the frontend directory:
-
+```
 cd frontend
-
+```
 Install dependencies:
-
+```
 npm install
-
+```
 Start the development server:
-
+```
 npm run dev
-
+```
 The application will run locally at:
-
+```
 http://localhost:5173
-
+```
 ------------------------------------------------------------
 ## APPLICATION INTERFACE
 ![Architectural Diagram](images/Architectural_Diagram.png)
 
 ![Inventory UI](images/Frontend.png)
-
-## ADD COFFEE MODEL
-
-![Modal](images/Frontend.png)
 
 ## API GATEWAY
 
