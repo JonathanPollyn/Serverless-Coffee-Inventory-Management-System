@@ -8,38 +8,35 @@ This project aims to show a practical serverless setup and highlight frontend de
 
 ------------------------------------------------------------
 
-# ARCHITECTURE
+## ARCHITECTURE
 
 The application follows a serverless architecture using AWS managed services.
 
 React Frontend  
       │
-      ▼
 Amazon API Gateway (HTTP API)
       │
-      ▼
 AWS Lambda Functions
       │
-      ▼
 Amazon DynamoDB
 
 The frontend sends HTTP requests to API Gateway. API Gateway routes the requests to Lambda functions. Lambda processes the request and interacts with DynamoDB for persistent storage.
 
 ------------------------------------------------------------
 
-# FEATURES
+## FEATURES
 
-• Create coffee inventory items  
-• Retrieve inventory list  
-• Delete coffee items  
-• Update coffee items  
-• Modal-based user interface for adding items  
-• Local development mode using mock data  
-• Serverless backend using AWS services  
+- Create coffee inventory items  
+- Retrieve inventory list  
+- Delete coffee items  
+- Update coffee items  
+- Modal-based user interface for adding items  
+- Local development mode using mock data  
+- Serverless backend using AWS services  
 
 ------------------------------------------------------------
 
-# API ENDPOINTS
+## API ENDPOINTS
 
 Base URL
 
@@ -60,17 +57,17 @@ PUT /inventory/{coffeeId}
 Updates an existing coffee item.
 
 Example item format
-
+```
 {
   "coffeeId": "c100",
   "name": "Americano",
   "price": 3.25,
   "available": true
 }
-
+```
 ------------------------------------------------------------
 
-# PROJECT STRUCTURE
+## PROJECT STRUCTURE
 
 The repository is organized into three main components: frontend, backend, and infrastructure.
 
@@ -119,7 +116,7 @@ serverless-inventory-management-system
 ```
 ------------------------------------------------------------
 
-# FRONTEND SETUP
+## FRONTEND SETUP
 
 Navigate to the frontend directory:
 
@@ -138,39 +135,40 @@ The application will run locally at:
 http://localhost:5173
 
 ------------------------------------------------------------
-# APPLICATION INTERFACE
+## APPLICATION INTERFACE
+![Architectural Diagram](images/Architectural_Diagram.png)
 
-![Inventory UI](docs/images/app-ui.png)
+![Inventory UI](images/Frontend.png)
 
 ## ADD COFFEE MODEL
 
-![Modal](docs/images/modal.png)
+![Modal](images/Frontend.png)
 
-## API Gateway
+## API GATEWAY
 
-![API](docs/images/api-gateway.png)
+![API](images/api-gateway-routes.png)
 ------------------------------------------------------------
-# DEVELOPMENT MODE (MOCK MODE)
+## DEVELOPMENT MODE (MOCK MODE)
 
 The frontend includes a development configuration that allows the UI to run without connecting to AWS services.
 
-Configuration file:
+### Configuration file:
 
-frontend/src/config.ts
+- frontend/src/config.ts
 
 Example configuration
-
+```
 export const MOCK_MODE = true
 export const API_URL = "https://<api-id>.execute-api.us-east-1.amazonaws.com/prod"
 
 When MOCK_MODE is enabled, the application uses in-memory mock data instead of calling the API Gateway endpoint. This allows UI development even when the backend is unavailable.
 
 When MOCK_MODE is disabled, the frontend communicates directly with the AWS API and data is stored in DynamoDB.
-
+```
 ------------------------------------------------------------
 
-# DYNAMODB TABLE DESIGN
-
+## DYNAMODB TABLE DESIGN
+```
 Partition Key
 
 coffeeId (String)
@@ -180,34 +178,34 @@ Attributes
 name  
 price  
 available
-
+```
 Each inventory item is uniquely identified using the coffeeId field.
 
 ------------------------------------------------------------
 
-# TECHNOLOGIES USED
+## TECHNOLOGIES USED
 
-React  
-TypeScript  
-Vite  
-AWS Lambda  
-Amazon API Gateway  
-Amazon DynamoDB  
-Node.js  
-Terraform (Infrastructure as Code)
-
-------------------------------------------------------------
-
-# POTENTIAL IMPROVEMENTS
-
-• Add authentication using Amazon Cognito  
-• Deploy infrastructure using Terraform automation  
-• Implement CI/CD pipeline using GitHub Actions  
-• Add analytics dashboard for inventory metrics  
-• Improve frontend UI with a component library  
+- React  
+- TypeScript  
+- Vite  
+- AWS Lambda  
+- Amazon API Gateway  
+- Amazon DynamoDB  
+- Node.js  
+- Terraform (Infrastructure as Code)
 
 ------------------------------------------------------------
 
-# AUTHOR
+## POTENTIAL IMPROVEMENTS
+
+- Add authentication using Amazon Cognito  
+- Deploy infrastructure using Terraform automation  
+- Implement CI/CD pipeline using GitHub Actions  
+- Add analytics dashboard for inventory metrics  
+- Improve frontend UI with a component library  
+
+------------------------------------------------------------
+
+## AUTHOR
 
 Jonathan Pollyn
